@@ -2,6 +2,9 @@ import React from "react";
 import { useRouter } from "next/router";
 import { getFilteredEvents } from "@/dummy-data";
 import EventList from "components/events/EventList";
+import ResultsTitle from "components/events/ResultTitle";
+import EventNotFound from "components/events/EventNotFound";
+import ErrorAlert from "components/ui/ErrorAlert";
 
 // 检查日期是否合法, 合法返回true, 不合法返回false
 const checkDate = (year: number, month: number): boolean => {
@@ -32,9 +35,12 @@ const FilteredEventsPage = () => {
   // 检查日期是否合法
   if (!checkDate(yearNum, monthNum)) {
     return (
-      <span>
-        Invalid filter. Please adjust your values!
-      </span>
+      <>
+        <ErrorAlert>
+          Invalid filter. Please adjust your values!
+        </ErrorAlert>
+        <EventNotFound link="/events" toDo="Show All Events"/>
+      </>
     );
   }
   // 获取过滤后的数据
@@ -42,17 +48,18 @@ const FilteredEventsPage = () => {
   // 没有找到符合条件的事件
   if (!filteredEvents || filteredEvents.length == 0) {
     return (
-      <span>
-        No events found for the chosen filter!
-      </span>
+      <>
+        <ErrorAlert>No events found for the chosen filter!</ErrorAlert>
+        <EventNotFound link={ "/events" } toDo={ "Show All Events" }/>
+      </>
     );
   }
 
+  const date = new Date(yearNum, monthNum - 1);
+
   return (
     <>
-      <h1>
-        FilteredEventsPage
-      </h1>
+      <ResultsTitle date={ date }/>
       <EventList dummyEvents={ filteredEvents }/>
     </>
   )

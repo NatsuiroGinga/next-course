@@ -6,8 +6,7 @@ interface Props extends React.PropsWithChildren {
   link?: string;
 }
 
-const Button = (props: Props) => {
-  const { children, link } = props;
+const Button = ({ children, link }: Props) => {
   return (
     <>
       {

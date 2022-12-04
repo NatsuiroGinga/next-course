@@ -1,11 +1,13 @@
 import classes from './index.module.css';
+import { PropsWithChildren } from "react";
 
-function EventContent(props: any) {
-  return (
-    <section className={ classes.content }>
-      { props.children }
-    </section>
-  );
+interface Props extends PropsWithChildren {
 }
+
+const EventContent = ({ children }: Props) => (
+  <section className={ classes.content }>
+    { children }
+  </section>
+);
 
 export default EventContent;

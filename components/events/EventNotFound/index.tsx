@@ -1,10 +1,24 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
+import Button from "components/ui/Button";
 
-const EventNotFound: React.FC = () => {
+interface Props extends PropsWithChildren {
+  // 跳转的链接
+  link: string;
+  // 要做的事情
+  toDo: string;
+}
+
+// 事件未找到组件
+const EventNotFound = (props: Props) => {
+  const { children, link, toDo } = props;
+
   return (
-    <div>
-      Event Not Found!
-    </div>
+    <>
+      { children ? <p>{ children }</p> : <></> }
+      <div className={ "center" }>
+        <Button link={ link }>{ toDo }</Button>
+      </div>
+    </>
   );
 };
 

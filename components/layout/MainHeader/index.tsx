@@ -2,13 +2,15 @@ import Link from "next/link";
 import styles from "./index.module.css";
 import React from "react";
 
-const MainHeader: React.FC = () => {
+const MainHeader = () => {
+  const { navigation, header, logo } = styles;
+
   return (
-    <header className={ styles.header }>
-      <div className={ styles.logo }>
+    <header className={ header }>
+      <div className={ logo }>
         <Link href="/">Next Events</Link>
       </div>
-      <nav className={ styles.navigation }>
+      <nav className={ navigation }>
         <ul>
           <li>
             <Link href="/events">All Events</Link>

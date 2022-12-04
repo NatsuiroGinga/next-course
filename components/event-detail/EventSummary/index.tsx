@@ -1,13 +1,15 @@
 import classes from './index.module.css';
 
-function EventSummary(props: any) {
-  const { title } = props;
+interface Props {
+  title: string;
+}
 
+const EventSummary = ({ title }: Props) => {
   return (
     <section className={ classes.summary }>
       <h1>{ title }</h1>
     </section>
   );
-}
+};
 
 export default EventSummary;

@@ -6,6 +6,7 @@ import EventNotFound from "components/events/EventNotFound";
 import EventLogistics from "components/event-detail/EventLogistics";
 import EventContent from "components/event-detail/EventContent";
 
+// 事件详情页面
 const EventDetailPage: React.FC = () => {
   const router = useRouter();
   const { eventId } = router.query;
@@ -27,7 +28,9 @@ const EventDetailPage: React.FC = () => {
             <span>{ event.description }</span>
           </EventContent>
         </> :
-        <EventNotFound/>
+        <EventNotFound link={ "/events" } toDo={ "Show All Events" }>
+          Events Not Found!
+        </EventNotFound>
       }
     </div>
   );

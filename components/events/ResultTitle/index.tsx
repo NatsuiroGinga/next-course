@@ -2,7 +2,7 @@ import Button from 'components/ui/Button';
 import classes from './index.module.css';
 
 interface Props {
-  date: string;
+  date: Date;
 }
 
 function ResultsTitle(props: Props) {

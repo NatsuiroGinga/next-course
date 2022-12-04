@@ -10,8 +10,7 @@ interface Props {
   imageAlt: string;
 }
 
-function EventLogistics(props: Props) {
-  const { date, address, image, imageAlt } = props;
+const EventLogistics = ({ address, date, image, imageAlt }: Props) => {
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day  : 'numeric',
@@ -35,6 +34,6 @@ function EventLogistics(props: Props) {
       </ul>
     </section>
   );
-}
+};
 
 export default EventLogistics;

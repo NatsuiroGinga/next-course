@@ -4,12 +4,12 @@ import MainHeader from "components/layout/MainHeader";
 interface Props extends React.PropsWithChildren {
 }
 
-const Layout = (props: Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <>
       <main>
         <MainHeader/>
-        { props.children }
+        { children }
       </main>
     </>
   );

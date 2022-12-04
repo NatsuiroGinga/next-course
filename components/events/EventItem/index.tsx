@@ -9,9 +9,10 @@ interface Pros {
   dummyEvent: DummyEvent;
 }
 
-const EventItem = (props: Pros) => {
+const EventItem = ({ dummyEvent }: Pros) => {
 
-  const { date, image, location, title, id } = props.dummyEvent;
+  const { date, image, location, title, id } = dummyEvent;
+
   const readableDate = new Date(date).toLocaleDateString("en-US", {
     day  : "numeric",
     month: "long",
